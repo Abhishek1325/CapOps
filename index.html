@@ -1,0 +1,90 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Output Challenge</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1e1e2f;
+      color: #e5e5e5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: #2b2b40;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      width: 320px;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #3b3b50;
+      color: #e5e5e5;
+      font-size: 14px;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 8px #5656ff;
+    }
+    button {
+      background-color: #5656ff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #4444ff;
+    }
+    #errorMessage {
+      color: #ff5656;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Code Output Challenge</h1>
+    <p>What is the output of the following code?</p>
+    <pre>
+      let sum = 0;
+      for (let i = 1; i <= 5; i++) {
+          sum += i * i;
+      }
+      console.log(sum);
+    </pre>
+    <input type="text" id="outputInput" placeholder="Enter the output here">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="errorMessage" style="display: none;">Incorrect! Try again.</p>
+  </div>
+  <script>
+    function checkAnswer() {
+      const correctAnswer = "55";
+      const userAnswer = document.getElementById('outputInput').value.trim();
+      const errorMessage = document.getElementById('errorMessage');
+
+      if (userAnswer === correctAnswer) {
+        window.location.href = "hint.html";
+      } else {
+        errorMessage.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
